@@ -1,0 +1,102 @@
+input[type='checkbox'] {
+    -webkit-appearance:none;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid grey;
+    outline: 0;
+    cursor: pointer;
+}
+input[type='checkbox']:checked {
+    background: #abd;
+}
+.group_cont input{
+    position: relative;
+    transform: translateY(30%);
+}
+.group_cont p{
+    white-space: nowrap;
+    max-width: 100px;
+    text-overflow: ellipsis;
+}
+.part2{
+    display: none;
+}
+#leftgroups{
+    /* width: auto; */
+    /* max-width: 50%; */
+    display: inline-block;
+    width: 50%;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    float: left;
+    text-align: left;
+    white-space: nowrap;
+}
+#rightgroups{
+    /* width: auto; */
+    /* max-width: 50%; */
+    display: inline-block;
+    width: 50%;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    padding-left: 15px;
+    float: left;
+    text-align: left;
+    white-space: nowrap;
+}
+#nextbtn{
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+}
+.aftergroups{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 10px;
+}
+.centercont{
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.centercontHeader{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+}
+.leftcont{
+    position: relative;
+    float: left;
+    width: 50%;
+    min-width: 200px;
+    height: auto;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.rightcont{
+    position: relative;
+    float: right;
+    text-align: right;
+    width: 50%;
+    min-width: 200px;
+    height: auto;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.centercontCont{
+    width: 100%;
+    height: auto;
+}
+

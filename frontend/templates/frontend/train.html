@@ -1,0 +1,29 @@
+{% extends "frontend/base.html" %}
+
+{% block css %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'frontend/train.css' %}">
+{% endblock %}
+
+{% block body %}
+
+    <div style="font-size: 25px; width: auto; max-width: 300px; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        {% comment %} <p style="font-size: 18px; color: grey; text-align: center;">THE STENO GRIND</p> {% endcomment %}
+
+        <form id='typie_form'>
+            <input value="" class="nice_input" id="typie" style="text-indent: 5px; font-size: 20px; padding: 5px 10px; border-radius: 4px; outline: none; border: 1px solid black;" autocomplete='off'>
+        <form>
+
+        <p id="wordlistcont" style="text-align: center; font-weight: 500;"></p>
+        <button style="display: inline;" onclick="location.reload()">Re-Train</button>
+        <button style="display: inline;" onclick="window.location.href='/'">Go Back</button>
+    </div>
+
+    <p id="wordlistFULL" style="position: absolute; opacity: 0; user-select: none;">{{word_list}}</p>
+
+{% endblock %}
+
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'frontend/train.js' %}"></script>
+{% endblock %}
