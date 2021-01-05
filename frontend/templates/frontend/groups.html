@@ -26,49 +26,27 @@
                 <div class="GroupItem">
                     <p style="text-align: center; padding-bottom: 5px;">YOUR GROUPS</p>
                     {% for key, value in group_list.items %}
-                        <div class="group_cont">
-                            <input class="nice_input" type="checkbox" name="G{{value}}">
-                            <p class="groupItemName">{{key}}</p>
+                        <div class="group_cont" id="contG{{value}}" onclick="check_uncheck('G{{value}}')">
+                            <input class="nice_input groupCheckBox" type="checkbox" id="G{{value}}" name="G{{value}}">
+                            <p class="groupItemName ">{{key}}</p>
                         </div>
                     {% endfor %}
                 </div>
                 <div class="GroupItem">
                     <p style="text-align: center; padding-bottom: 5px;">DEFAULT GROUPS</p>
                     {% for key, value in levels_list.items %}
-                        <div class="group_cont">
-                            <input class="nice_input" type="checkbox" name="L{{value}}">
+                    <div class="group_cont" id="contL{{value}}" onclick="check_uncheck('L{{value}}')">
+                            <input class="nice_input groupCheckBox" type="checkbox" id="L{{value}}" name="L{{value}}">
                             <p class="groupItemName">{{key}}</p>
                         </div>
                     {% endfor %}
                 </div>
             </div>
 
-            {% comment %} <div class="centercontCont part1"> {% endcomment %}
-            {% comment %}     <div class="leftcont"> {% endcomment %}
-            {% comment %}         <p style="text-align: center; border-right: 1px solid lightgrey;">Your Groups</p> {% endcomment %}
-            {% comment %}         {% for key, value in group_list.items %} {% endcomment %}
-            {% comment %}             <div class="group_cont"> {% endcomment %}
-            {% comment %}                 <input class="nice_input" type="checkbox" name="G{{value}}"> {% endcomment %}
-            {% comment %}                 <p style="display: inline;">{{key}}</p> {% endcomment %}
-            {% comment %}             </div> {% endcomment %}
-            {% comment %}         {% endfor %} {% endcomment %}
-            {% comment %}     </div> {% endcomment %}
-
-            {% comment %}     <div class="rightcont"> {% endcomment %}
-            {% comment %}         <p style="text-align: center; border-left: 1px solid lightgrey;">Default Groups</p> {% endcomment %}
-            {% comment %}         {% for key, value in levels_list.items %} {% endcomment %}
-            {% comment %}             <div class="group_cont"> {% endcomment %}
-            {% comment %}                 <p style="display: inline;">{{key}}</p> {% endcomment %}
-            {% comment %}                 <input class="nice_input" type="checkbox" name="L{{value}}"> {% endcomment %}
-            {% comment %}             </div> {% endcomment %}
-            {% comment %}         {% endfor %} {% endcomment %}
-            {% comment %}     </div> {% endcomment %}
-            {% comment %} </div> {% endcomment %}
-
         </form>
 
         <div class="aftergroups">
-            <button id="nextbtn" class="part1" onclick="nextStep()">Next</button>
+            <button id="nextbtn" class="part1 niceBTN" onclick="nextStep()">Next</button>
         </div>
 
         {% comment %} <button class="part2" onclick="location.reload()">Back</button> {% endcomment %}
