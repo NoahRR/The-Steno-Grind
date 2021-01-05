@@ -11,16 +11,23 @@
         <form id="group_list_form" action="/train/" method="POST">
 
             <div class="centercontHeader">
-                <p class="part2" style="font-weight: 500; text-align: center; color: grey; font-weight: 400;">HOW MANY WORDS YOU WOULD LIKE TO TRAIN</p>
+                {% comment %} <p class="part2" style="font-weight: 500; text-align: center; color: grey; font-weight: 400;">HOW MANY WORDS YOU WOULD LIKE TO TRAIN</p> {% endcomment %}
                 <p class="part1" style="font-weight: 500; text-align: center; color: grey; font-weight: 400;">SELECT THE WORD GROUPS TO TRAIN</p>
+                {% if MSG %}
+                    <p class="part1" style="font-weight: 500; text-align: center; color: red; font-weight: 400;">{{MSG}}</p>
+                {% endif %}
             </div>
 
-            <div class="part2">
-                <label for="word_amount">Word Amount:</label>
-                <input id="word_amount" name="wordamm" placeholder="ex: 20"><br><br>
-            </div>
+            {% comment %} <div class="part2"> {% endcomment %}
+            {% comment %}     <label for="word_amount">Word Amount:</label> {% endcomment %}
+            {% comment %}     <input id="word_amount" name="wordamm" placeholder="ex: 20"><br><br> {% endcomment %}
+            {% comment %} </div> {% endcomment %}
 
             {%csrf_token%}
+
+            {% if MSG %}
+                <div style="height: 6px;"></div>
+            {% endif %}
 
             <div id="contGroup" class="part1">
                 <div class="GroupItem">
@@ -36,22 +43,21 @@
                     <p style="text-align: center; padding-bottom: 5px;">DEFAULT GROUPS</p>
                     {% for key, value in levels_list.items %}
                     <div class="group_cont" id="contL{{value}}" onclick="check_uncheck('L{{value}}')">
-                            <input class="nice_input groupCheckBox" type="checkbox" id="L{{value}}" name="L{{value}}">
-                            <p class="groupItemName">{{key}}</p>
-                        </div>
+                        <input class="nice_input groupCheckBox" type="checkbox" id="L{{value}}" name="L{{value}}">
+                        <p class="groupItemName">{{key}}</p>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
 
+            <div class="aftergroups">
+                <label for="word_amount">Word Amount:</label>
+                <input id="word_amount" class="niceINP" style="width: 70px;" name="wordamm" placeholder="default: 30"><br><br>
+            </div>
+
+            <button id="nextbtn" class="part1 niceBTN">Train</button>
+
         </form>
-
-        <div class="aftergroups">
-            <button id="nextbtn" class="part1 niceBTN" onclick="nextStep()">Next</button>
-        </div>
-
-        {% comment %} <button class="part2" onclick="location.reload()">Back</button> {% endcomment %}
-        {% comment %} <button class="part2" onclick="document.querySelector('#group_list_form').submit();">Train</button> {% endcomment %}
-
     </div>
 {% endblock %}
 

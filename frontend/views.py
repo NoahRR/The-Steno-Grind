@@ -23,61 +23,82 @@ def modify(request):
 # personalized and customized training
 def training(request):
 
-    if request.method == 'POST':
+    if request.user.is_authenticated:
 
-        formDict = request.POST.dict()
-        groups_to_include = []
-        training_length = request.POST.get('wordamm')
+        if request.method == 'POST':
 
-        # get list of group id's to gather words form
-        for item in formDict:
-            if item != 'csrfmiddlewaretoken' and item != 'wordamm':
-                if formDict[item] == 'on':
-                    groups_to_include.append(item)
+            formDict = request.POST.dict()
+            groups_to_include = []
+            training_length = request.POST.get('wordamm')
 
-        # get list of words to train from specified groups
-        word_pool = {}
-        for group in groups_to_include:
-            # group to add
-            if group[0] == 'G':
-                tmp_word_pool = Word.objects.filter(parent_group=int(group[1:]))
+            # get list of group id's to gather words form
+            for item in formDict:
+                if item != 'csrfmiddlewaretoken' and item != 'wordamm':
+                    if formDict[item] == 'on':
+                        groups_to_include.append(item)
 
-                for item in tmp_word_pool:
-                    word_pool[item.translation] = item.stroke
+            # get list of words to train from specified groups
+            word_pool = {}
+            for group in groups_to_include:
+                # group to add
+                if group[0] == 'G':
+                    tmp_word_pool = Word.objects.filter(parent_group=int(group[1:]))
 
-            # level to add
-            elif group[0] == 'L':
-                tmp_word_pool = Word.objects.filter(parent_level=int(group[1:]))
+                    for item in tmp_word_pool:
+                        word_pool[item.translation] = item.stroke
 
-                for item in tmp_word_pool:
-                    word_pool[item.translation] = item.stroke
+                # level to add
+                elif group[0] == 'L':
+                    tmp_word_pool = Word.objects.filter(parent_level=int(group[1:]))
+
+                    for item in tmp_word_pool:
+                        word_pool[item.translation] = item.stroke
 
 
-        # randomize order of words
-        keys = list(word_pool.keys())
-        random.shuffle(keys)
+            # randomize order of words
+            keys = list(word_pool.keys())
+            random.shuffle(keys)
 
-        # correct length of words
-        try:
-            keys = keys[:int(training_length)]
-        except:
-            return redirect('/')
+            if not keys:
 
-        # format words/translations and strokes for frontend
-        final_word_list = ''
-        final_word_dict = {}
+                all_groups = WordGroup.objects.filter(parent=request.user)
+                default_groups = Levels.objects.all()
 
-        for key in keys:
-            final_word_list += key + ' '
-            final_word_dict[key] = word_pool[key]
+                context = {}
+                for group in all_groups:
+                    context[group.name] = group.id
 
-        return render(request, 'frontend/train.html', {
-            'word_list': final_word_list,
-            'word_dict': final_word_dict
-        })
+                context2 = {}
+                for level in default_groups:
+                    context2[level.name] = level.id
 
-    else:
-        return redirect('/auth/login')
+                return render(request, 'frontend/groups.html', {
+                    'group_list': context,
+                    'levels_list': context2,
+                    'MSG': 'Please select a word group :D',
+                })
+
+            # correct length of words
+            try:
+                keys = keys[:int(training_length)]
+            except:
+                keys = keys[:30]
+
+            # format words/translations and strokes for frontend
+            final_word_list = ''
+            final_word_dict = {}
+
+            for key in keys:
+                final_word_list += key + ' '
+                final_word_dict[key] = word_pool[key]
+
+            return render(request, 'frontend/train.html', {
+                'word_list': final_word_list,
+                'word_dict': final_word_dict
+            })
+
+        else:
+            return redirect('/auth/login')
 
 # home and selection of training
 def groups(request):
