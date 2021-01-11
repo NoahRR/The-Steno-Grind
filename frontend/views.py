@@ -75,7 +75,7 @@ def training(request):
                 return render(request, 'frontend/groups.html', {
                     'group_list': context,
                     'levels_list': context2,
-                    'MSG': 'Please select a word group :D',
+                    'MSG': 'Please select a word group',
                 })
 
             # correct length of words
