@@ -31,7 +31,7 @@
                 <div class="GroupItem" id="GG">
                     <p style="text-align: center; padding-bottom: 5px;">YOUR GROUPS</p>
                     {% for key, value in group_list.items %}
-                        <div class="group_cont" id="contG{{value}}" onclick="check_uncheck('G{{value}}')">
+                        <div class="group_cont" data-key="{{key}}" data-type="G" data-val="{{value}}" id="contG{{value}}" onclick="check_uncheck('G{{value}}')">
                             <input class="nice_input groupCheckBox" type="checkbox" id="G{{value}}" name="G{{value}}">
                             <p class="groupItemName ">{{key}}</p>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="xx" viewBox="0 0 16 16">

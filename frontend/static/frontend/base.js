@@ -1,12 +1,13 @@
 var mouseOverX = false
 
 // easier calls to api
-function callAPI(url, type, data) {
+function callAPI(url, type, data, csrf_head) {
 
     $.ajax({
         url: url,
         type: type,
         data: data,
+        headers:{"X-CSRFToken": csrf_head},
         success: function (response) {
             window.location.reload()
         },
@@ -15,11 +16,6 @@ function callAPI(url, type, data) {
             console.log(response)
         }
     })
-
-}
-
-// move word group to trash
-function groupToTrash() {
 
 }
 
@@ -37,28 +33,6 @@ function createNewGroup() {
         }
         callAPI('/api/wordgroup/', 'post', data)
     }
-}
-
-// formCreateSubmit('/api/wordgroup/', 'post', {'name': newName, 'parent': ('http://127.0.0.1:8000/api/users/' + userid + '/'), 'csrfmiddlewaretoken': csrf})
-function formCreateSubmit(path, method, params) {
-
-  const form = document.createElement('form');
-  form.method = method;
-  form.action = path;
-
-  for (const key in params) {
-    // if (params.hasOwnProperty(key)) {
-      const hiddenField = document.createElement('input');
-      hiddenField.type = 'hidden';
-      hiddenField.name = key;
-      hiddenField.value = params[key];
-
-      form.appendChild(hiddenField);
-    // }
-  }
-
-  document.body.appendChild(form);
-  form.submit();
 }
 
 
@@ -113,7 +87,28 @@ document.querySelectorAll('.xx').forEach( (item) => {
         mouseOverX = false
     })
     item.addEventListener('click', () => {
-        alert('Are you sure you want to delete this group?')
+        if (confirm('Are you sure you want to move this group to the trash?')) {
+
+            var groupID = item.parentNode.dataset.val
+            var groupTYPE = item.parentNode.dataset.type
+            var csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
+            var userid = document.querySelector('#USRID').value
+            var name = item.parentNode.dataset.key
+
+            if ( groupTYPE == 'G' ) {
+                if ( groupID && name && userid && csrf ) {
+                    var url = '/api/wordgroup/' + groupID + '/'
+                    var data = {
+                        "name": name,
+                        "trash": true,
+                        "parent": `http://127.0.0.1:8000/api/users/${userid}/`
+                    }
+                    callAPI(url, 'put', data, csrf)
+                }
+            } else {
+                //pass for now... this wil be for the DEFAULT GROUPS
+            }
+        }
     })
 })
 

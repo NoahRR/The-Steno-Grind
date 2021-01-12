@@ -110,7 +110,8 @@ def groups(request):
 
         context = {}
         for group in all_groups:
-            context[group.name] = group.id
+            if not group.trash:
+                context[group.name] = group.id
 
         context2 = {}
         for level in default_groups:

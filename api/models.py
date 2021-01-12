@@ -7,6 +7,7 @@ class WordGroup(models.Model):
     parent = models.ForeignKey(User, on_delete=models.CASCADE)
 
     name = models.CharField(max_length=100, blank=False, default="unnamed group")
+    trash = models.BooleanField(default=False, blank=False)
 
     def __str__(self):
         return self.name
