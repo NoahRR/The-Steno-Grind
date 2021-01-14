@@ -178,3 +178,6 @@ input[type='checkbox']:checked {
 .xx:hover{
     background-color: #C1C1C1;
 }
+.LI{
+    display: block;
+}

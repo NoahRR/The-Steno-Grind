@@ -9,8 +9,16 @@
     <div style="font-size: 18px; text-align: center; width: auto; max-width: 1500px; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
         <ul style="max-width: 35vw;">
             <p style="color: grey; text-align: center;">MODIFY</p>
-            <li style="list-style: none;">You do not have access to this page</li>
+            {% for key, value in groups.items %}
+                <li style="font-size: 11px; list-style: none;">{{key}} <b>{{value}}</b></li>
+            {% endfor %}
         </ul>
+        <form action="/modify/" method="POST">
+            {%csrf_token%}
+            <input name="num" placeholder="group id" class="LI">
+            <textarea name="csv" placeholder="CSV list of words to add" class="LI"></textarea>
+            <input type="submit" class="LI">
+        </form>
     </div>
 {% endblock %}
 

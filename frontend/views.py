@@ -18,7 +18,35 @@ def info(request):
 
 # 
 def modify(request):
-    return render(request, 'frontend/modify.html')
+
+    if request.user.is_authenticated:
+
+        if request.method == 'POST':
+
+            G_ID = request.POST.get('num')
+            G_CSV = request.POST.get('csv')
+            G_CSV = G_CSV.split(',')
+
+            for item in G_CSV:
+
+                new_word = Word(parent_level_id=int(G_ID), translation=item.strip())
+                new_word.save()
+
+            return redirect('/')
+
+        else:
+
+            default_groups = Levels.objects.all()
+
+            context2 = {}
+            for level in default_groups:
+                context2[level.name] = level.id
+
+            return render(request, 'frontend/modadd.html', {'groups': context2})
+
+    else:
+
+        return render(request, 'frontend/modify.html')
 
 # personalized and customized training
 def training(request):
@@ -86,15 +114,15 @@ def training(request):
 
             # format words/translations and strokes for frontend
             final_word_list = ''
-            final_word_dict = {}
+            #  final_word_dict = {}
 
             for key in keys:
-                final_word_list += key + ' '
-                final_word_dict[key] = word_pool[key]
+                final_word_list += key.lower() + ' '
+                #  final_word_dict[key] = word_pool[key]
 
             return render(request, 'frontend/train.html', {
                 'word_list': final_word_list,
-                'word_dict': final_word_dict
+                #  'word_dict': final_word_dict
             })
 
         else:
