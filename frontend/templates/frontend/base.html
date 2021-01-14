@@ -14,13 +14,13 @@
 </head>
 <body style="font-family: 'Montserrat', sans-serif;">
     
-    <div class="NavBar">
-        <div class="NavBarLeft"><p>THE STENO GRIND</p></div>
+    <div class="NavBar" onclick="window.location.href='/'">
+        <div class="NavBarLeft overNEWhead"><p style="text-align: center; font-weight: 500;">THE STENO GRIND</p></div>
         <div class="NavBarRight">
-            <a href="/auth/logout">Logout</a>
-            <a href="/modify/">Modify</a>
-            <a href="/">Train</a>
-            <a href="/info/">Info</a>
+            {% comment %} <a href="/auth/logout">Logout</a> {% endcomment %}
+            {% comment %} <a href="/modify/">Modify</a> {% endcomment %}
+            {% comment %} <a href="/">Train</a> {% endcomment %}
+            {% comment %} <a href="/info/">Info</a> {% endcomment %}
         </div>
     </div>
 
@@ -32,6 +32,7 @@
             width: 100%;
             border-bottom: 1px solid #ECECEC;
             height: 50px;
+            cursor: pointer;
         } 
         .NavBarRight{
             position: absolute;
@@ -63,6 +64,10 @@
         .nice_input{
             padding: 5px 10px;
             outline: none;
+        }
+        .overNEWhead{
+            left: 50%;
+            transform: translateX(-50%);
         }
 
     </style>

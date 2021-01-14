@@ -23,7 +23,7 @@ def modify(request):
 # personalized and customized training
 def training(request):
 
-    if request.user.is_authenticated:
+    #  if request.user.is_authenticated:
 
         if request.method == 'POST':
 
@@ -61,19 +61,19 @@ def training(request):
 
             if not keys:
 
-                all_groups = WordGroup.objects.filter(parent=request.user)
+                #  all_groups = WordGroup.objects.filter(parent=request.user)
                 default_groups = Levels.objects.all()
 
-                context = {}
-                for group in all_groups:
-                    context[group.name] = group.id
+                #  context = {}
+                #  for group in all_groups:
+                #      context[group.name] = group.id
 
                 context2 = {}
                 for level in default_groups:
                     context2[level.name] = level.id
 
                 return render(request, 'frontend/groups.html', {
-                    'group_list': context,
+                    #  'group_list': context,
                     'levels_list': context2,
                     'MSG': 'Please select a word group',
                 })
@@ -97,29 +97,30 @@ def training(request):
                 'word_dict': final_word_dict
             })
 
-        else:
-            return redirect('/auth/login')
+        #  else:
+        #      return redirect('/auth/login')
 
 # home and selection of training
 def groups(request):
 
-    if request.user.is_authenticated:
+    #  if request.user.is_authenticated:
 
-        all_groups = WordGroup.objects.filter(parent=request.user)
+        #  all_groups = WordGroup.objects.filter(parent=request.user)
         default_groups = Levels.objects.all()
 
-        context = {}
-        for group in all_groups:
-            if not group.trash:
-                context[group.name] = group.id
+        #  context = {}
+        #  for group in all_groups:
+        #      if not group.trash:
+        #          context[group.name] = group.id
 
         context2 = {}
         for level in default_groups:
             context2[level.name] = level.id
 
-        return render(request, 'frontend/groups.html', {'group_list': context, 'levels_list': context2})
-    else:
-        return render(request, 'frontend/index.html')
+        #  return render(request, 'frontend/groups.html', {'group_list': context, 'levels_list': context2})
+        return render(request, 'frontend/groups.html', {'levels_list': context2})
+    #  else:
+    #      return render(request, 'frontend/index.html')
 
 # signup
 def signup(request):

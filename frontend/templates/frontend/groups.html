@@ -14,7 +14,7 @@
     <div class="centercont">
 
         <div class="centercontHeader">
-            <p class="part1" style="font-weight: 500; text-align: center; color: grey; font-weight: 400;">SELECT THE WORD GROUPS TO TRAIN</p>
+            <p class="part1" style="font-weight: 500; text-align: center; color: grey; font-weight: 400;">SELECT WORD GROUPS TO TRAIN</p>
             {% if MSG %}
                 <p class="part1" style="font-weight: 500; text-align: center; color: red; font-weight: 400;">{{MSG}}</p>
             {% endif %}
@@ -28,24 +28,24 @@
             {%csrf_token%}
 
             <div id="contGroup" class="part1">
-                <div class="GroupItem" id="GG">
-                    <p style="text-align: center; padding-bottom: 5px;">YOUR GROUPS</p>
-                    {% for key, value in group_list.items %}
-                        <div class="group_cont" data-key="{{key}}" data-type="G" data-val="{{value}}" id="contG{{value}}" onclick="check_uncheck('G{{value}}')">
-                            <input class="nice_input groupCheckBox" type="checkbox" id="G{{value}}" name="G{{value}}">
-                            <p class="groupItemName ">{{key}}</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="xx" viewBox="0 0 16 16">
-                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                            </svg>
-                        </div>
-                    {% endfor %}
-                    {% comment %} <div class="group_cont" id="contGADD" onclick="NewGroupElem('#GG')"> {% endcomment %}
-                    <div class="group_cont" id="contGADD" onclick="createNewGroup()">
-                        <p style="text-align: center; width: 100%; padding: 5px 0; margin: 0; font-size: 20px;">+</p>
-                    </div>
-                </div>
+                {% comment %} <div class="GroupItem" id="GG"> {% endcomment %}
+                {% comment %}     <p style="text-align: center; padding-bottom: 5px;">YOUR GROUPS</p> {% endcomment %}
+                {% comment %}     {% for key, value in group_list.items %} {% endcomment %}
+                {% comment %}         <div class="group_cont" data-key="{{key}}" data-type="G" data-val="{{value}}" id="contG{{value}}" onclick="check_uncheck('G{{value}}')"> {% endcomment %}
+                {% comment %}             <input class="nice_input groupCheckBox" type="checkbox" id="G{{value}}" name="G{{value}}"> {% endcomment %}
+                {% comment %}             <p class="groupItemName ">{{key}}</p> {% endcomment %}
+                {% comment %}             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="xx" viewBox="0 0 16 16"> {% endcomment %}
+                {% comment %}                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/> {% endcomment %}
+                {% comment %}             </svg> {% endcomment %}
+                {% comment %}         </div> {% endcomment %}
+                {% comment %}     {% endfor %} {% endcomment %}
+                {% comment %}     [> <div class="group_cont" id="contGADD" onclick="NewGroupElem('#GG')"> <] {% endcomment %}
+                {% comment %}     <div class="group_cont" id="contGADD" onclick="createNewGroup()"> {% endcomment %}
+                {% comment %}         <p style="text-align: center; width: 100%; padding: 5px 0; margin: 0; font-size: 20px;">+</p> {% endcomment %}
+                {% comment %}     </div> {% endcomment %}
+                {% comment %} </div> {% endcomment %}
                 <div class="GroupItem" id="GL">
-                    <p style="text-align: center; padding-bottom: 5px;">DEFAULT GROUPS</p>
+                    <p style="text-align: center; padding-bottom: 5px;">WORD GROUPS</p>
                     {% for key, value in levels_list.items %}
                         <div class="group_cont" id="contL{{value}}" onclick="check_uncheck('L{{value}}')">
                             <input class="nice_input groupCheckBox" type="checkbox" id="L{{value}}" name="L{{value}}">
