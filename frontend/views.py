@@ -97,6 +97,9 @@ def training(request):
                 'word_dict': final_word_dict
             })
 
+        else:
+            return redirect('/')
+
         #  else:
         #      return redirect('/auth/login')
 
@@ -123,23 +126,23 @@ def groups(request):
     #      return render(request, 'frontend/index.html')
 
 # signup
-def signup(request):
-    if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
+#  def signup(request):
+#      if request.method == 'POST':
+#          form = RegisterForm(request.POST)
+#          if form.is_valid():
+#              form.save()
 
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
+#              username = form.cleaned_data.get('username')
+#              raw_password = form.cleaned_data.get('password1')
 
-            user = authenticate(username=username, password=raw_password)
+#              user = authenticate(username=username, password=raw_password)
 
-            if user is not None:
-                login(request, user)
-                return redirect('/')
-        return render(request, 'registration/signup.html', {'form': form})
-    else:
-        #  form = UserCreationForm()
-        form = RegisterForm()
-        return render(request, 'registration/signup.html', {'form': form})
+#              if user is not None:
+#                  login(request, user)
+#                  return redirect('/')
+#          return render(request, 'registration/signup.html', {'form': form})
+#      else:
+#          #  form = UserCreationForm()
+#          form = RegisterForm()
+#          return render(request, 'registration/signup.html', {'form': form})
 

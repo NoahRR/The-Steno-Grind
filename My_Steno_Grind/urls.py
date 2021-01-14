@@ -17,15 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from api import urls as urls1
 from frontend import urls as urls2
-from frontend.views import signup, login
+#  from frontend.views import signup, login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(urls1)),
     path('', include(urls2)),
     path('auth/', include('django.contrib.auth.urls')),
-    path('auth/signup/', signup, name="signup"),
+    #  path('auth/signup/', signup, name="signup"),
     #  path('auth/login/', login, name="signup"),
 ]
 
-### PASSWORD: jenesisNRqwer1234
