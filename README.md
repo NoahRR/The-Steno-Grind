@@ -1,8 +1,6 @@
 # The Steno Grind
 
-<br>
-A typing training app for beginner stenographers
-<br>
+### A typing training app for beginner stenographers
 
 <li>The Steno Grind is a companion web application for <i>The Art of Chording</i> textbook, found <a href="https://www.artofchording.com/" target="_blank">here</a></li>
 <br>
