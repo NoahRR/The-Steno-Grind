@@ -1,1 +1,5 @@
 *.pyc
+log.txt
+passenger_wsgi.py
+tmp/
+My_Steno_Grind/__pycache__/

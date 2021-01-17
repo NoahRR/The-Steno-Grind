@@ -24,7 +24,7 @@
             <div style="height: 6px;"></div>
         {% endif %}
 
-        <form id="group_list_form" action="/train/" method="POST">
+        <form id="group_list_form" action="{% url 'frontend:training' %}" method="POST">
             {%csrf_token%}
 
             <div id="contGroup" class="part1">

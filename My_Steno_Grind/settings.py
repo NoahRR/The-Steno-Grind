@@ -27,7 +27,7 @@ SECRET_KEY = 'n$+y91py7t)3o@hnmmd3%3u(!z95p!7-yvyg&r2y5zw^d!#qz)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['noahrayroberts.com', 'localhost']
 
 
 # Application definition
@@ -122,7 +122,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/public/static/'
+#STATIC_ROOT = '/home/nexusor1/PROJECTS/The-Steno-Grind/public/static/'
+STATIC_ROOT = '/home/nexusor1/PERSONALWEBtest/Personal-Website/public/static/'
 
 LOGIN_REDIRECT_URL = '/api/'
 LOGOUT_REDIRECT_URL = '/'

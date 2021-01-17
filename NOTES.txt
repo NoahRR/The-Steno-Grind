@@ -1,0 +1,1 @@
+... the document root here is the public folder within the directory for noahrayroberts.com
