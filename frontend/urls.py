@@ -6,7 +6,8 @@ from django.conf.urls import include
 app_name = 'frontend'
 urlpatterns = [
     path('train/', views.training, name='training'),
-    path('', views.groups, name='groups'),
+    path('groups/', views.groups, name='groups'),
     path('info/', views.info, name='info'),
     path('modify/', views.modify, name='modify'),
+    path('', views.intro, name='intro'),
 ]

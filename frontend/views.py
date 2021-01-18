@@ -174,3 +174,6 @@ def groups(request):
 #          form = RegisterForm()
 #          return render(request, 'registration/signup.html', {'form': form})
 
+
+def intro(request):
+    return render(request, 'frontend/intro.html')
