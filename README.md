@@ -1,5 +1,7 @@
 # The Steno Grind
 
+app is live at <a href="https://noahrayroberts.com/apps/the-steno-grind/">https://noahrayroberts.com/apps/the-steno-grind/</a>
+
 ### A typing training app for beginner stenographers
 
 <li>The Steno Grind is a companion web application for <i>The Art of Chording</i> textbook, found <a href="https://www.artofchording.com/" target="_blank">here</a></li>
