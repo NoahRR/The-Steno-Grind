@@ -1,6 +1,6 @@
 # The Steno Grind
 
-app is live at <a href="https://noahrayroberts.com/apps/the-steno-grind/">https://noahrayroberts.com/apps/the-steno-grind/</a>
+live at <a href="https://noahrayroberts.com/apps/the-steno-grind/">https://noahrayroberts.com/apps/the-steno-grind/</a>
 
 ### A typing training app for beginner stenographers
 
