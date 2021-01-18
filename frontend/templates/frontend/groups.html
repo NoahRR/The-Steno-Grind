@@ -1,11 +1,5 @@
 {% extends "frontend/base.html" %}
 
-{% block css %}
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'frontend/base.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-{% endblock %}
-
 {% block body %}
 
     <input id="USRID" type="hidden" value="{{user.id}}">
@@ -16,7 +10,7 @@
         <div class="centercontHeader">
             <p class="part1" style="font-weight: 500; text-align: center; color: grey; font-weight: 400;">SELECT WORD GROUPS TO TRAIN</p>
             {% if MSG %}
-                <p class="part1" style="font-weight: 500; text-align: center; color: red; font-weight: 400;">{{MSG}}</p>
+                <p class="part1" style="font-weight: 500; text-align: center; color: #61BCD0; font-weight: 400;">{{MSG}}</p>
             {% endif %}
         </div>
 

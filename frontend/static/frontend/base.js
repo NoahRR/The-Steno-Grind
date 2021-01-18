@@ -51,13 +51,13 @@ function nextStep() {
 function check_uncheck(elem) {
 
     item = document.querySelector(`#cont${elem}`);
-    shadowColor = item.style.boxShadow.substring(0, 3);
+    shadowColor = item.style.boxShadow.substring(0, 5);
 
-    if (shadowColor == 'red' && mouseOverX == false) {
+    if (shadowColor == 'black' && mouseOverX == false) {
         item.style.boxShadow = 'none';
         item.querySelector('input').checked = false;
     } else if (mouseOverX == false) {
-        item.style.boxShadow = '0px 0px 8px -2px red';
+        item.style.boxShadow = '0px 0px 8px -2px black';
         item.querySelector('input').checked = true;
     }
 }
@@ -65,13 +65,13 @@ function check_uncheck(elem) {
 // group items hover styling
 document.querySelectorAll('.group_cont').forEach((item) => {
     item.addEventListener('mouseover', function() {
-        if (this.style.boxShadow.substring(0, 3) != 'red') {
+        if (this.style.boxShadow.substring(0, 5) != 'black') {
             this.style.boxShadow = '0px 0px 8px -2px rgba(143,143,143,1)'
         }
         try {this.querySelector('.xx').style.display = 'unset'} catch {}
     })
     item.addEventListener('mouseout', function() {
-        if (this.style.boxShadow.substring(0, 3) != 'red') {
+        if (this.style.boxShadow.substring(0, 5) != 'black') {
             this.style.boxShadow = 'none'
         }
         try {this.querySelector('.xx').style.display = 'none'} catch {}
