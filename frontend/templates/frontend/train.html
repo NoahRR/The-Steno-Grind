@@ -8,19 +8,27 @@
 
 {% block body %}
 
-    <div style="font-size: 25px; width: auto; max-width: 300px; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-        {% comment %} <p style="font-size: 18px; color: grey; text-align: center;">THE STENO GRIND</p> {% endcomment %}
+    <div class="train_cont">
 
         <form id='typie_form' onsubmit="location.reload()">
             <input value="" class="nice_input" id="typie" style="text-indent: 5px; font-size: 20px; padding: 5px 10px; border-radius: 4px; outline: none; border: 1px solid black;" autocomplete='off'>
         </form>
 
-        <p id="wordlistcont" style="text-align: center; font-weight: 500;"></p>
+        <p id="wordlistcont" style="text-align: left; font-weight: 500;"></p>
+        {% comment %} <p id="wordlistcont2" style="text-align: left; font-weight: 500; white-space: nowrap; margin-top: -20px;"></p> {% endcomment %}
+        {% comment %} <p style="margin-top: -20px; color: grey;">...</p> {% endcomment %}
         <button class="niceBTN" style="display: inline; font-size: 16px; float: left;" onclick="window.location.href=`{% url 'frontend:groups' %}`">Go Back</button>
-        <button class="niceBTN" style="display: inline; font-size: 16px; float: right;" onclick="location.reload()">Re-Train</button>
+        <button id="retrain-btn" class="niceBTN" style="display: inline; font-size: 16px; float: right;" onclick="location.reload()">Re-Shuffle & Train</button>
     </div>
 
-    <p id="wordlistFULL" style="position: absolute; opacity: 0; user-select: none;">{{word_list}}</p>
+    <p id="wordlistFULL" style="position: absolute; opacity: 0; user-select: none; display: none;">{{word_list}}</p>
+
+    <style>
+        .restList1{
+            color: grey;
+            font-weight: 300;
+        }
+    </style>
 
 {% endblock %}
 

@@ -29,13 +29,14 @@
 <body style="font-family: 'Montserrat', sans-serif;">
     
     <div class="NavBar" onclick="window.location.href=`{% url 'frontend:groups' %}`">
-        <div class="NavBarLeft overNEWhead"><p style="text-align: center; font-weight: 500;">THE STENO GRIND</p></div>
+        <p id="header_title">THE STENO GRIND</p>
         <div class="NavBarRight">
             {% comment %} <a href="/auth/logout">Logout</a> {% endcomment %}
             {% comment %} <a href="/modify/">Modify</a> {% endcomment %}
             {% comment %} <a href="/">Train</a> {% endcomment %}
             {% comment %} <a href="{% url 'frontend:info' %}">What's this app?</a> {% endcomment %}
-            <a href="{% url 'frontend:info' %}">What's this app?</a>
+            <a id="to_info1" href="{% url 'frontend:info' %}">What's this app?</a>
+            <a id="to_info2" href="{% url 'frontend:info' %}">?</a>
         </div>
     </div>
 

@@ -3,6 +3,10 @@ light blue: #61BCD0
 blue: #166576
 */
 
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
 a{
     color: #61BCD0;
 }
@@ -73,6 +77,31 @@ input[type='checkbox']:checked {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.centercont3{
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.centercont_info{
+    font-size: 18px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 30px;
+}
+.centercont_info ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 .centercontHeader{
     position: relative;
     top: 0;
@@ -107,33 +136,36 @@ input[type='checkbox']:checked {
 #contGroup{
     display: grid;
     /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
-    grid-template-columns: repeat(auto-fit, 350px);
-    grid-gap: 1rem;
-    grid-auto-flow: dense;
-    grid-auto-rows: 500px;
-    padding: 20px 20px;
-    max-width: 1000px;
+    /* grid-template-columns: repeat(auto-fit, 350px); */
+    /* grid-gap: 1rem; */
+    /* grid-auto-flow: dense; */
+    /* grid-auto-rows: 500px; */
+    overflow-y: scroll;
+    width: auto;
+    height: 400px;
     position: relative;
+    border-radius: 10px;
+    font-size: 16px;
 }
 .GroupItem{
-    /* background-color: #EFEFEF; */
+    width: 80vw;
+    max-width: 400px;
     background-color: #F1F1F1;
-    /* box-shadow: 0px 0px 8px -2px rgba(143,143,143,1); */
     border-radius: 10px;
-    /* overflow: hidden; */
     grid-column: span 1;
     grid-row: span 1;
     padding: 10px;
-    overflow-y: auto;
 }
 .group_cont{
     position: relative;
     width: 100%;
-    /* background-color: #E8E8E8; */
     background-color: #E2E2E2;
     border-radius: 5px;
-    margin: 10px 0;
+    margin-top: 10px;
     cursor: pointer;
+}
+.group_cont:first-child{
+    margin-top: 0;
 }
 /* .group_cont:hover{ */
 /*     box-shadow: 0px 0px 8px -2px rgba(143,143,143,1); */
@@ -143,7 +175,7 @@ input[type='checkbox']:checked {
 }
 .groupItemName{
     display: inline-block;
-    width: 80%;
+    width: 90%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -188,6 +220,7 @@ input[type='checkbox']:checked {
     background-color: white;
     padding: 10px;
     border-radius: 10px;
+    font-size: 16px;
     /* text-align: center; */
 }
 .niceINP2{
@@ -209,4 +242,84 @@ input[type='checkbox']:checked {
 }
 .LI{
     display: block;
+}
+#to_info2{
+    display: none;
+}
+#header_title{
+    text-align: center;
+    font-weight: 500;
+    white-space: nowrap;
+    width: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.train_cont{
+    font-size: 25px;
+    width: auto;
+    max-width: 300px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+@media only screen and (max-width: 830px) {
+    .centercont_info ul{
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+@media only screen and (max-width: 660px) {
+    .hello_center h1{
+        font-size: 20px;
+    }
+    .hello_center p{
+        font-size: 14px;
+    }
+    .hello_btn{
+        padding: 10px 20px;
+        margin: 0 2px;
+        width: auto;
+        float: left !important;
+        font-size: 12px;
+    }
+    #to_info1{display: none;}
+    #to_info2{display: unset;}
+}
+@media only screen and (max-width: 350px) {
+    #to_info2{display: none;}
+
+    .GroupItem{
+        /* width: 80vw; */
+        font-size: 13px;
+    }
+    .train_cont{
+        max-width: 70%;
+    }
+    #typie{
+        width: 70%;
+    }
+    #retrain-btn{
+        float: left !important;
+    }
+    .niceBTN{
+        margin: 5px 0;
+    }
+
+}
+@media only screen and (max-width: 315px) {
+    .centercont{
+        width: 80%;
+    }
+    .centercont_info{
+        font-size: 16px;
+        line-height: 20px;
+    }
+
 }

@@ -5,7 +5,7 @@
     <input id="USRID" type="hidden" value="{{user.id}}">
     {%csrf_token%}
 
-    <div class="centercont">
+    <div class="centercont3">
 
         <div class="centercontHeader">
             <p class="part1" style="font-weight: 500; text-align: center; color: grey; font-weight: 400;">SELECT WORD GROUPS TO TRAIN</p>
@@ -15,7 +15,7 @@
         </div>
 
         {% if MSG %}
-            <div style="height: 6px;"></div>
+            <div style="height: 23px;"></div>
         {% endif %}
 
         <form id="group_list_form" action="{% url 'frontend:training' %}" method="POST">
@@ -39,7 +39,7 @@
                 {% comment %}     </div> {% endcomment %}
                 {% comment %} </div> {% endcomment %}
                 <div class="GroupItem" id="GL">
-                    <p style="text-align: center; padding-bottom: 5px;">WORD GROUPS</p>
+                    {% comment %} <p style="text-align: center; padding-bottom: 5px;">WORD GROUPS</p> {% endcomment %}
                     {% for key, value in levels_list.items %}
                         <div class="group_cont" id="contL{{value}}" onclick="check_uncheck('L{{value}}')">
                             <input class="nice_input groupCheckBox" type="checkbox" id="L{{value}}" name="L{{value}}">
@@ -55,13 +55,14 @@
                     {% comment %} </div> {% endcomment %}
                 </div>
             </div>
+            <br>
 
-            <div class="aftergroups">
-                <label for="word_amount">Word Amount:</label>
-                <input id="word_amount" class="niceINP" style="width: 70px;" name="wordamm" placeholder="default: 30"><br><br>
-            </div>
+            {% comment %} <div class="aftergroups"> {% endcomment %}
+            {% comment %}     <label for="word_amount">Word Amount:</label> {% endcomment %}
+            {% comment %}     <input id="word_amount" class="niceINP" style="width: 70px;" name="wordamm" placeholder="default: 30"><br><br> {% endcomment %}
+            {% comment %} </div> {% endcomment %}
 
-            <button id="nextbtn" class="part1 niceBTN">Train</button>
+            <button id="nextbtn" class="part1 niceBTN">Shuffle & Train</button>
 
         </form>
 
