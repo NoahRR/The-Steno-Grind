@@ -13,7 +13,7 @@
                 <li style="font-size: 11px; list-style: none;">{{key}} <b>{{value}}</b></li>
             {% endfor %}
         </ul>
-        <form action="/modify/" method="POST">
+        <form action="/apps/the-steno-grind/modify/" method="POST">
             {%csrf_token%}
             <input name="num" placeholder="group id" class="LI">
             <textarea name="csv" placeholder="CSV list of words to add" class="LI"></textarea>
