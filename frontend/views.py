@@ -32,7 +32,7 @@ def modify(request):
                 new_word = Word(parent_level_id=int(G_ID), translation=item.strip())
                 new_word.save()
 
-            return redirect('/')
+            return redirect('/apps/the-steno-grind/modify/')
 
         else:
 
